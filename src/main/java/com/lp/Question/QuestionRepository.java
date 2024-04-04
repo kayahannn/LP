@@ -1,4 +1,6 @@
 package com.lp.Question;
 
-public interface QuestionRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface QuestionRepository extends CrudRepository<Question, Long> {
 }

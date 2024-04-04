@@ -1,4 +1,6 @@
 package com.lp.Course;
 
-public interface CourseRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface CourseRepository extends CrudRepository<Course, Long> {
 }

@@ -13,22 +13,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    UserMapper userMapper;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    BCryptPasswordEncoder encoder;
-
-    @GetMapping("/add")
-    public String add(Model model) {
-        model.addAttribute("newC", new UserDTO());
-        return "user-add";
-    }
-
-    @PostMapping("/submit")
-    public String submit(@ModelAttribute UserDTO object) {
-        userRepository.save(userMapper.toEntity(object));
-        return "redirect:/login";
-    }
+////    @Autowired
+////    UserMapper userMapper;
+//    @Autowired
+//    UserRepository userRepository;
+//    @Autowired
+//    BCryptPasswordEncoder encoder;
+//
+//    @GetMapping("/add")
+//    public String add(Model model) {
+//        model.addAttribute("newC", new UserDTO());
+//        return "user-add";
+//    }
+//
+//    @PostMapping("/submit")
+//    public String submit(@ModelAttribute UserDTO object) {
+//        userRepository.save(userMapper.toEntity(object));
+//        return "redirect:/login";
+//    }
 }

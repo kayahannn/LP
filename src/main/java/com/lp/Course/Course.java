@@ -18,6 +18,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private User user;
+//    @OneToMany
+//    private User user;
 
 }

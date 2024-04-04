@@ -1,4 +1,6 @@
 package com.lp.module;
 
-public interface ModuleRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface ModuleRepository extends CrudRepository<Module, Long> {
 }

@@ -16,6 +16,6 @@ public class Lecture {
     private Long id;
     private String video_link;
     private String presentation_link;
-    private Module module;
+//    private Module module;
 
 }
