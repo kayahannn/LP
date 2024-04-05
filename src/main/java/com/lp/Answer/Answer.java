@@ -1,22 +1,19 @@
-package com.lp.Lecture;
+package com.lp.Answer;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "lectures")
+@Table(name = "answers")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Lecture {
+public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String video_link;
-    private String presentation_link;
-    @ManyToOne
-    private Module module;
+    private String name;
 
 }
