@@ -22,7 +22,7 @@ public class LectureController {
     @PostMapping("/submit")
     public String submit(@ModelAttribute Lecture object) {
         lectureRepository.save(object);
-        return "redirect:/lecture-add";
+        return "redirect:/lecture/add";
     }
 
     @GetMapping("/get")

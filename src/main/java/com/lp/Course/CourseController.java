@@ -20,7 +20,7 @@ public class CourseController {
     @PostMapping("/submit")
     public String submit(@ModelAttribute Course object) {
         courseRepository.save(object);
-        return "redirect:/course-add";
+        return "success-msg";
     }
 
     @GetMapping("/get")

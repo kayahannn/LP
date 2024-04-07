@@ -20,10 +20,10 @@
           <a class="nav-link active" aria-current="page" href="http://localhost:8080/dish/add">Dish add</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost:8080/dish/get">Dish get All</a>
+          <a class="nav-link" href="http://localhost:8080/dish/get">link 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost:8080/product/add">Product add</a>
+          <a class="nav-link" href="http://localhost:8080/product/add">link 2</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="http://localhost:8080/product/get">Product get All</a>
@@ -40,13 +40,13 @@
   </div>
 </nav>
 <div>
-  <form action="#" th:action="@{/lecture/submit}" th:object="${newC}" method="post">
+  <form action="#" th:action="@{/question/submit}" th:object="${newC}" method="post">
     <div>
-      title: <input type="text" th:field="*{name}" required/>
+      Question: <input type="text" th:field="*{name}" required/>
     </div>
-        <div>
-          video link: <input type="text" th:field="*{video_lnk}" required/>
-        </div>
+<!--        <div>-->
+<!--          answer: <input type="text" th:field="*{an}" required/>-->
+<!--        </div>-->
     <!--    <div>-->
     <!--      price: <input type="text" th:field="*{price}" required/>-->
     <!--    </div>-->

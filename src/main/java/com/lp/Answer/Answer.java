@@ -1,5 +1,6 @@
 package com.lp.Answer;
 
+import com.lp.Question.Question;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,6 +15,9 @@ public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String answer;
+    private boolean correct;
+    @ManyToOne
+    private Question question;
 
 }

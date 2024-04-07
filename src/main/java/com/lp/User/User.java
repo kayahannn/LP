@@ -1,6 +1,9 @@
 package com.lp.User;
 
+import com.lp.Course.Course;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -15,7 +18,8 @@ public class User {
     private String password;
     private String role;
     private boolean enabled;
-
+    @ManyToMany
+    private List<Course> course;
     public Long getId() {
         return id;
     }

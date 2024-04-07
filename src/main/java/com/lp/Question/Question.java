@@ -1,7 +1,10 @@
 package com.lp.Question;
 
+import com.lp.Answer.Answer;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "questions")
@@ -15,5 +18,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @OneToMany
+    private List<Answer> answer;
 
 }
