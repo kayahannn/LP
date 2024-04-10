@@ -21,6 +21,4 @@ public class Module {
     private String name;
     @ManyToOne
     private Course course;
-@OneToMany
-    private List<User> userList;
 }

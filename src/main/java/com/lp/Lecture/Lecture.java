@@ -1,6 +1,7 @@
 package com.lp.Lecture;
 
 import com.lp.Homework.Homework;
+import com.lp.module.Module;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,9 +17,9 @@ public class Lecture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String video_lnk;
-    private String presentation_lnk;
+    private String lnk_video;
+    private String lnk_pdf;
     @ManyToOne
-    private Homework homework;
+    private Module module;
 
 }

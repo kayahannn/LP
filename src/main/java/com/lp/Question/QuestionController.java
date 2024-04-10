@@ -1,5 +1,7 @@
 package com.lp.Question;
 
+import com.lp.Answer.Answer;
+import com.lp.Answer.AnswerRepository;
 import com.lp.module.Module;
 import com.lp.module.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 public class QuestionController {
     @Autowired
     QuestionRepository questionRepository;
+    @Autowired
+    AnswerRepository answerRepository;
 
     @GetMapping("/add")
     public String add(Model model) {
@@ -20,8 +24,14 @@ public class QuestionController {
     }
 
     @PostMapping("/submit")
-    public String submit(@ModelAttribute Question object) {
+    public String submit(@ModelAttribute Question object, @ModelAttribute Answer answer) {
         questionRepository.save(object);
+        answerRepository.save(answer);
+        return "redirect:/question-add";
+    }
+    @PostMapping("/submit_answer")
+    public String submitAnswer(@ModelAttribute Answer answer) {
+        answerRepository.save(answer);
         return "redirect:/question-add";
     }
 

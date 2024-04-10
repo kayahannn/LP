@@ -1,11 +1,10 @@
 package com.lp.Homework;
 
-import com.lp.Course.Course;
-import com.lp.Lecture.Lecture;
 import com.lp.Question.Question;
-import com.lp.User.User;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "homeworks")
@@ -19,7 +18,7 @@ public class Homework {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private boolean passed;
-    @ManyToOne
-    private Question question;
+    @ManyToMany
+    private List<Question> questionList;
 
 }

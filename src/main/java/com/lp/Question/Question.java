@@ -19,6 +19,6 @@ public class Question {
     private Long id;
     private String name;
     @OneToMany
-    private List<Answer> answer;
+    private List<Answer> answerList;
 
 }

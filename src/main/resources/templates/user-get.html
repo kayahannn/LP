@@ -37,12 +37,28 @@
 </nav>
 <div>
     <table>
+        <thead>
+        <tr>
+            <th>name   </th>
+            <th>email  </th>
+            <th>course </th>
+            <th>payment</th>
+        </tr>
+        </thead>
         <tbody>
-        <li th:each="d : ${all}">
-            <span th:text="*{d.name}"></span>
-            <span th:text="*{d.course}"></span>
+        <th:block th:each="d : ${all}">
+            <tr>
+                <td th:text="${d.name}"></td>
+                <td th:text="${d.email}"></td>
+                <td th:text="${d.course}"></td>
+                <td th:text="${d.id}"></td>
+                <td>
+                    <button type="button" class="btn">Delete</button>
+                    <button type="button" class="btn">Update</button>
+                </td>
+            </tr>
 
-        </li>
+        </th:block>
         </tbody>
     </table>
 </div>

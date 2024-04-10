@@ -1,8 +1,10 @@
 package com.lp.module;
 
+import com.lp.Course.CourseRepository;
 import com.lp.Lecture.Lecture;
 import com.lp.Lecture.LectureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +17,21 @@ import java.util.Map;
 public class ModuleController {
     @Autowired
     ModuleRepository moduleRepository;
+    @Autowired
+    CourseRepository courseRepository;
 
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("newC", new Module());
+        model.addAttribute("dropdown", courseRepository.findAll());
+        model.addAttribute("all", moduleRepository.findAll());
         return "module-add";
     }
 
     @PostMapping("/submit")
     public String submit(@ModelAttribute Module object) {
         moduleRepository.save(object);
-        return "redirect:/module-add";
+        return "redirect:/module/add";
     }
 
     @GetMapping("/get")

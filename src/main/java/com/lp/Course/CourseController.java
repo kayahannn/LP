@@ -14,13 +14,20 @@ public class CourseController {
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("newC", new Course());
+        model.addAttribute("all", courseRepository.findAll());
         return "course-add";
     }
 
     @PostMapping("/submit")
     public String submit(@ModelAttribute Course object) {
+        Iterable<Course> all = courseRepository.findAll();
+        for (Course i : all) {
+            if (object.getName().equalsIgnoreCase(i.getName())) {
+                return "msg-duplicate";
+            }
+        }
         courseRepository.save(object);
-        return "success-msg";
+        return "msg-success";
     }
 
     @GetMapping("/get")
