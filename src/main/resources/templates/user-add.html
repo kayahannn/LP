@@ -51,15 +51,19 @@
             </select>
         </div>
             <div>
-              password: <input type="text" th:field="*{password}" required/>
+              password: <input type="password" th:field="*{password}" required/>
             </div>
-<!--            <div>-->
-<!--              location: <input type="text" th:field="*{location}" required/>-->
-<!--            </div>-->
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">Invalid username or password</div>
+        </div>
+        <div th:if="${param.logout}">
+            <div class="alert alert-info">You have been logged out.</div>
+        </div>
+<!--
             <div>
               email: <input type="text" th:field="*{email}" required/>
             </div>
-        <!--    <div>-->
+        <!    <div>-->
         <!--      category: <input type="text" th:field="*{category}" required/>-->
         <!--    </div>-->
         <!--    <div>-->

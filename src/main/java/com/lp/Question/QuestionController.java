@@ -9,6 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Controller
 @RequestMapping("question")
 public class QuestionController {
@@ -16,19 +20,32 @@ public class QuestionController {
     QuestionRepository questionRepository;
     @Autowired
     AnswerRepository answerRepository;
+    @Autowired
+    QuestionMapper questionMapper;
 
     @GetMapping("/add")
     public String add(Model model) {
-        model.addAttribute("newC", new Module());
+        model.addAttribute("newC", new QuestionDto());
         return "question-add";
     }
 
     @PostMapping("/submit")
-    public String submit(@ModelAttribute Question object, @ModelAttribute Answer answer) {
-        questionRepository.save(object);
-        answerRepository.save(answer);
-        return "redirect:/question-add";
+    public String submit(@ModelAttribute QuestionDto object) {
+        for (Answer answer : object.getAnswerList()) {
+            answerRepository.save(answer);
+        }
+
+//        Iterable<Answer> iterAnswer = object.getAnswerList();
+//        List<Answer> storedAnswers = (List<Answer>) answerRepository.saveAll(iterAnswer);
+        Question question = questionMapper.toEntity(object);
+        question.setAnswerList(object.getAnswerList());
+
+//        question.setAnswerList(storedAnswers);
+        questionRepository.save(question);
+
+        return "redirect:/question/add";
     }
+
     @PostMapping("/submit_answer")
     public String submitAnswer(@ModelAttribute Answer answer) {
         answerRepository.save(answer);

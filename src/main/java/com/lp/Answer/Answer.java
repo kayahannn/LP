@@ -16,7 +16,15 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String answer;
-    private boolean isCorrect;
+    //    @Column(columnDefinition = "tinyint(1) default 1")
+    @Column(name = "is_correct", columnDefinition = "boolean default false")
+    private Boolean correct;
 
+    public boolean getIsCorrect() {
+        return correct;
+    }
 
+    public void setIsCorrect(boolean isCorrect) {
+        correct = isCorrect;
+    }
 }
