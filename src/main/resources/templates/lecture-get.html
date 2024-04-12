@@ -7,55 +7,40 @@
     <title>Country</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/dish/add">Dish add</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/dish/get">Dish get All</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/product/add">Product add</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/product/get">Product get All</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/user">Profile</a>
-                </li>
-            </ul>
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Learning Platform</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" href="http://localhost:8086/user">Profile</a>
         </div>
     </div>
 </nav>
-
-<div>
-    <table>
-        <thead>
-        <tr>
-            <th>name   </th>
-            <th>email  </th>
-            <th>course </th>
-            <th>payment</th>
-        </tr>
-        </thead>
-        <tbody>
-        <th:block th:each="d : ${all}">
-            <tr>
-                <td th:text="${d.name}"></td>
-                <td th:text="${d.email}"></td>
-                <td th:text="${d.course}"></td>
-                <td th:text="${d.id}"></td>
-                <td>
+<!--<div>-->
+<!--    <table>-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>name   </th>-->
+<!--            <th>email  </th>-->
+<!--            <th>course </th>-->
+<!--            <th>payment</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <th:block th:each="d : ${all}">-->
+<!--            <tr>-->
+<!--                <td th:text="${d.name}"></td>-->
+<!--                <td th:text="${d.email}"></td>-->
+<!--                <td th:text="${d.course}"></td>-->
+<!--                <td th:text="${d.id}"></td>-->
+<!--                <td>-->
                     <button type="button" class="btn">Delete</button>
-                    <button type="button" class="btn">Update</button>
+                    <a href="http://localhost:8086/lecture/get/1">
+                        <button>Click me</button>
+                    </a>
                 </td>
             </tr>
 
@@ -74,7 +59,7 @@
     </iframe>
 </div>
 <div>
-    <iframe th:src='${doc}' width='40%'
+    <iframe th:src='${doc}' width='80%'
             height='600px' frameborder='0'>
     </iframe>
 </div>

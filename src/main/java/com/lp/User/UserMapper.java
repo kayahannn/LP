@@ -6,15 +6,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
-//    @Autowired
-//    private BCryptPasswordEncoder encoder;
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
-    public User toEntity(UserDTO object) {
+    public User toEntity(UserDTO objectDto) {
         User user = new User();
-        user.setName(object.getName());
-//        user.setPassword(encoder.encode(object.getPassword()));
-        user.setEmail(object.getEmail());
-        user.setCourse(object.getCourse());
+        user.setName(objectDto.getName());
+        user.setLastname(objectDto.getLastname());
+        user.setPassword(encoder.encode(objectDto.getPassword()));
+        user.setEmail(objectDto.getEmail());
+        user.setCourse(objectDto.getCourse());
+
         user.setEnabled(true);
         user.setRole("User");
 

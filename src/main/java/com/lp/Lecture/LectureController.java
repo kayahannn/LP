@@ -30,24 +30,9 @@ public class LectureController {
         lectureRepository.save(object);
         return "redirect:/lecture/add";
     }
-
-//    @GetMapping("/get")
-//    public String getAll(Model model, Lecture object) {
-//        Iterable<Lecture> all = lectureRepository.findAll();
-//        model.addAttribute("all", all);
-//        Lecture lecture = new Lecture();
-//        lecture.setLnk_video("https://www.youtube.com/embed/tgbNymZ7vqY");
-//        lecture.setLnk_pdf("https://docs.google.com/document/d/1n4nMNtc7qKfW64z8kSq-ibtNIhgnDtNrXMhivENYT78/edit");
-//        model.addAttribute("video",lecture.getLnk_video());
-//        model.addAttribute("doc", lecture.getLnk_pdf());
-//        return "lecture-get";
-//    }
-
-
     @GetMapping("/get/{id}")
     public String getById(@PathVariable Long id, @ModelAttribute("lecture") Lecture lecture, Model model) {
         lecture = lectureRepository.getById(id);
-
         model.addAttribute("video", lecture.getLnk_video());
         model.addAttribute("doc", lecture.getLnk_pdf());
         return "lecture-get";
