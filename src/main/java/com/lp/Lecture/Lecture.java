@@ -1,8 +1,8 @@
 package com.lp.Lecture;
 
-import com.lp.Homework.Homework;
 import com.lp.module.Module;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
@@ -16,9 +16,12 @@ public class Lecture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String name;
+    @NotBlank
     private String lnk_video;
-    private String lnk_pdf;
+    @NotBlank
+    private String lnk_doc;
     @ManyToOne
     private Module module;
 

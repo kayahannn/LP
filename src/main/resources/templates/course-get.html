@@ -30,21 +30,15 @@
         <thead class="thead-dark">
         <tr>
             <th>Name</th>
-            <th>Options</th>
-            <!--            <th>course</th>-->
-            <!--            <th>payment</th>-->
+            <th>Register</th>
         </tr>
         </thead>
         <tbody>
         <th:block th:each="d : ${all}">
             <tr>
                 <td th:text="*{d.name}"></td>
-                <!--        <td th:text="${d.email}"></td>-->
-                <!--        <td th:text="${d.course}"></td>-->
-                <!--        <td th:text="${d.id}"></td>-->
                 <td>
-                    <button type="button" class="btn">Delete</button>
-                    <button type="button" class="btn">Update</button>
+                    <a class="nav-link" href="http://localhost:8086/user/add">Register</a>
                 </td>
             </tr>
         </th:block>

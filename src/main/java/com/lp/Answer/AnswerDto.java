@@ -1,6 +1,7 @@
 package com.lp.Answer;
 
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter
@@ -9,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class AnswerDto {
+    @NotBlank
     private String answer;
-    private Boolean isCorrect;
+    private Boolean isCorrect = false;
 }

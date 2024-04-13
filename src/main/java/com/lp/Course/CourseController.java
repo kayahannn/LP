@@ -37,17 +37,25 @@ public class CourseController {
         return "course-get";
     }
 
-    @GetMapping("/edit")
-    public String edit(Model model) {
+    @GetMapping("/edit/{id}")
+    public String edit(Model model, @PathVariable("id") Long id) {
+
+        Course object = courseRepository.findById(id).orElseThrow();// get or else throw error
+        model.addAttribute("updateObject", object);
         Iterable<Course> all = courseRepository.findAll();
         model.addAttribute("all", all);
-        return "course-edit";
+        return "course-update";
+    }
+    @PostMapping("/update/{id}")
+    public String updateProduct(Model model, @PathVariable("id") Long id, Course p) {
+        courseRepository.save(p);
+        return "redirect:/course/add";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(Model model, @PathVariable("id") Long id) {
         Course deleteObject = courseRepository.findById(id).orElseThrow();
         courseRepository.delete(deleteObject);
-        return "course-edit";
+        return "redirect:/course/add";
     }
 }

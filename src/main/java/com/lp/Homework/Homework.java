@@ -1,5 +1,6 @@
 package com.lp.Homework;
 
+import com.lp.Lecture.Lecture;
 import com.lp.Question.Question;
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,5 +21,7 @@ public class Homework {
     private boolean passed;
     @ManyToMany
     private List<Question> questionList;
+    @OneToOne
+    private Lecture lecture;
 
 }

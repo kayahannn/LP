@@ -1,8 +1,5 @@
 package com.lp.Lecture;
 
-import com.lp.Course.Course;
-import com.lp.Course.CourseRepository;
-import com.lp.module.Module;
 import com.lp.module.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +31,12 @@ public class LectureController {
     public String getById(@PathVariable Long id, @ModelAttribute("lecture") Lecture lecture, Model model) {
         lecture = lectureRepository.getById(id);
         model.addAttribute("video", lecture.getLnk_video());
-        model.addAttribute("doc", lecture.getLnk_pdf());
+        model.addAttribute("doc", lecture.getLnk_doc());
+        return "lecture-page";
+    }
+    @GetMapping("/getAll/{id}")
+    public String getLectureByUserId(@PathVariable Long id) {
+       Iterable<Lecture> lectureList = lectureRepository.findByUserId(id);
         return "lecture-get";
     }
 
